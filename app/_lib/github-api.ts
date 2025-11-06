@@ -1,4 +1,4 @@
-import type { GitHubSearchResponse } from './types';
+import type { GitHubSearchResponse, ErrorResponse } from './types';
 
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 const cache = new Map<
@@ -42,6 +42,9 @@ export async function searchRepositories(
       throw new Error(
         'GitHub API rate limit exceeded. Please try again later.'
       );
+    } else if (response.status === 422) {
+      const errRes = (await response.json()) as ErrorResponse;
+      throw new Error(errRes?.errors[0]?.message || errRes.message);
     }
     throw new Error(`GitHub API error: ${response.statusText}`);
   }

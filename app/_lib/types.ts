@@ -14,3 +14,12 @@ export type GitHubSearchResponse = {
   incomplete_results: boolean;
   items: GitHubRepository[];
 };
+
+export type ErrorResponse = {
+  message: string;
+  errors: [
+    {
+      message: string;
+    }
+  ];
+};
