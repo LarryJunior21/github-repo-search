@@ -378,6 +378,8 @@ body {
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .repo-description {
@@ -387,6 +389,7 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .repo-stats {
