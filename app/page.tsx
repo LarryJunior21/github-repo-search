@@ -287,6 +287,7 @@ export default function Home() {
                           </p>
                           <div className="repo-stats">
                             <span className="stat">
+                              {/* Emojis are faster and easier for this occasion, for production I'd use svg's from public */}
                               ⭐ {repo?.stargazers_count.toLocaleString()}
                             </span>
                             <span className="stat">

@@ -12,8 +12,8 @@ export async function searchRepositories(
   page = 1,
   perPage = 10
 ): Promise<GitHubSearchResponse> {
-  // Build search query
-  let searchQuery = query;
+  // Build search query, normally I'd implement sanity checks even if the API does it, to prevent attacks
+  let searchQuery = (query += ' in:name ');
   if (user) {
     searchQuery += ` user:${user}`;
   }
